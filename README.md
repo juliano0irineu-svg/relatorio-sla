@@ -4,7 +4,11 @@ Projeto para acompanhar chamados, prazos e indicadores de atendimento em um pain
 
 ## Estado atual
 
-O projeto está em planejamento. Este repositório foi criado para reunir o código e a documentação do Relatório SLA. Ainda não há aplicação nem integração com dados reais neste repositório.
+O painel antigo foi recuperado localmente como referência visual e técnica. Ele já organiza chamados por área e responsável, permite busca, filtros e exportação. A próxima versão será validada primeiro com dados fictícios ou anonimizados; não haverá conexão com dados reais nem publicação nesta fase.
+
+## Planejamento da nova versão
+
+O escopo, as decisões necessárias e a sequência de trabalho estão em [PLANO_DO_PROJETO.md](PLANO_DO_PROJETO.md). O rascunho da tela e das funcionalidades da primeira versão está em [ESPECIFICACAO_PRIMEIRA_VERSAO.md](ESPECIFICACAO_PRIMEIRA_VERSAO.md).
 
 ## Objetivo
 
@@ -58,7 +62,7 @@ flowchart LR
 - **Este repositório privado:** documentação, código e histórico de alterações quando os arquivos forem incorporados.
 - **Conversas:** as abas ChatGPT / Work e Codex não sincronizam automaticamente suas mensagens. Registre decisões importantes nos arquivos para que ambas possam consultá-las.
 
-O repositório ainda não está conectado à pasta local. A versão anterior do painel e as planilhas citadas no contexto precisam ser localizadas e revisadas antes de qualquer incorporação. O projeto da faculdade `Programacao-oo` é independente.
+O repositório está conectado à pasta local `Repositorio_Git`. A versão anterior do painel foi preservada como material de referência; apenas a estrutura visual e técnica necessária será adaptada para este projeto. As planilhas citadas no contexto permanecem no Drive e não devem ser incorporadas ao repositório. O projeto da faculdade `Programacao-oo` é independente.
 
 ### Ferramentas e publicação
 
@@ -85,6 +89,6 @@ Use apenas dados fictícios ou anonimizados no repositório. Não inclua planilh
 ## Próximos passos
 
 1. Confirmar as regras de SLA e os campos necessários.
-2. Localizar e revisar o código existente antes de incorporá-lo.
-3. Criar a versão de demonstração e testar os cálculos.
+2. Adaptar a demonstração local com filtros, indicadores e cálculos próprios de SLA.
+3. Definir as regras de SLA e testar os cálculos.
 4. Revisar uma prévia antes de conectar dados reais ou publicar.

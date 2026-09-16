@@ -11,6 +11,7 @@
 *.csv
 /dados-reais/
 /dados-privados/
+.restore-source/
 
 # Dependências e arquivos gerados
 node_modules/
