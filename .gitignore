@@ -1,0 +1,24 @@
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Dados operacionais
+*.xlsx
+*.xls
+*.csv
+/dados-reais/
+/dados-privados/
+
+# Dependências e arquivos gerados
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
