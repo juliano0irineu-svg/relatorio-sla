@@ -25,7 +25,23 @@ Começar com uma demonstração usando dados fictícios. Depois, conectar a font
 
 **Codex** organiza o projeto, cria o painel, implementa e testa os cálculos, prepara a versão de demonstração e integra Drive/GLPI quando a fonte oficial, as regras e as permissões estiverem definidas.
 
+### Mapa mental do projeto
+
+![Mapa mental do Relatório SLA: responsabilidades de Você, ChatGPT / Work e Codex](mapa-mental-relatorio-sla.png)
+
+
+
 ### Mapa de responsabilidades
+
+| Quem | Faz | Entrega para a próxima etapa |
+| --- | --- | --- |
+| **Você** | Define prioridades e regras de SLA, valida indicadores e aprova a publicação. | Decisões e aprovação registradas. |
+| **ChatGPT / Work** | Organiza requisitos, analisa dados e regras, documenta decisões e revisa os resultados com você. | Critérios de cálculo e pendências claros para o Codex. |
+| **Codex** | Organiza o código, constrói o painel, implementa e testa os cálculos e prepara a demonstração. Integra Drive/GLPI depois da definição de fonte, regras e permissões. | Código, testes e prévia para revisão. |
+
+**Fluxo:** Você define → Work detalha e registra → Codex constrói e testa → Work revisa com você → Você aprova. Se houver ajuste, Work esclarece a regra e Codex corrige a implementação.
+
+
 
 ```mermaid
 flowchart LR
