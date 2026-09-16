@@ -44,6 +44,16 @@ flowchart LR
 
 O repositório ainda não está conectado à pasta local. A versão anterior do painel e as planilhas citadas no contexto precisam ser localizadas e revisadas antes de qualquer incorporação. O projeto da faculdade `Programacao-oo` é independente.
 
+### Ferramentas e publicação
+
+- **Explorador de arquivos:** guarda os arquivos locais em preparação na pasta compartilhada `Teste`.
+- **GitHub:** mantém a documentação, o código e o histórico no repositório privado `relatorio-sla`.
+- **Google Drive / GLPI:** são as possíveis fontes dos dados reais, após definir acesso, campos e regras de tratamento.
+- **Netlify:** servirá para apresentar prévias e, quando aprovado, hospedar o painel. O projeto original `relatorio-glpi-teste` não deve ser alterado sem autorização. O projeto `relatorio-glpi-completo-2026` foi criado para testes e também não deve ser atualizado sem aprovação explícita.
+
+Fluxo previsto: arquivos e dados de origem → desenvolvimento local → GitHub → prévia no Netlify → sua revisão → aprovação → produção.
+
+
 ## Decisões pendentes
 
 - Tipos de SLA e prazos por área ou prioridade.
