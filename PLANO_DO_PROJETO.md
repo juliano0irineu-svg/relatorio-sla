@@ -1,8 +1,8 @@
-# Plano do Relatório SLA
+# Plano do Relatório de Tempo de Atendimento
 
 ## Propósito
 
-Transformar o painel recuperado em um relatório de SLA confiável e simples de usar. Primeiro construiremos e validaremos a experiência com dados de demonstração. A conexão com as planilhas do Google Drive ficará para a etapa final.
+Transformar o painel recuperado em um relatório confiável e simples para comparar o tempo de atendimento de cada comprador. Primeiro construiremos e validaremos a experiência com dados de demonstração. A conexão com as planilhas do Google Drive ficará para a etapa final.
 
 ## O que já temos
 
@@ -18,7 +18,7 @@ O painel deve permitir que uma pessoa responda, sem precisar abrir planilhas:
 1. Quantos chamados foram recebidos e concluídos no período?
 2. Qual área e qual responsável concentram mais chamados?
 3. Quanto tempo os chamados levaram para ser concluídos em dias e horas úteis?
-4. Quais chamados ficaram acima do prazo definido?
+4. Quais chamados exigiram mais tempo para serem concluídos?
 5. Como os resultados mudam por mês, semestre e ano?
 
 ## Funcionalidades da primeira versão
@@ -27,24 +27,22 @@ O painel deve permitir que uma pessoa responda, sem precisar abrir planilhas:
 - Filtros por área, responsável, ano, semestre e período.
 - Busca por número do chamado.
 - Lista de chamados filtrados e exportação do recorte.
-- Indicadores de SLA: dentro do prazo, fora do prazo e em risco.
-- Explicação visível de como o tempo é calculado.
+- Comparação de tempo médio, maior e menor tempo entre compradores e áreas.
+- Explicação visível de como o tempo útil é calculado.
 
-## Regras que ainda precisam de decisão
+## Regra de cálculo já definida
 
-| Assunto | Decisão necessária |
+| Assunto | Regra |
 | --- | --- |
-| Prazo de SLA | Qual é o prazo para cada tipo ou prioridade de chamado? |
-| Tempo útil | Dias úteis apenas ou também horário comercial e feriados? |
-| Marco inicial | Abertura do chamado ou primeira resposta? |
-| Marco final | Fechamento, solução ou encerramento? |
-| Pausas | Chamados aguardando terceiros suspendem a contagem? |
-| Prioridade | Quais campos definem urgência e prazo? |
+| Início | Data e hora de abertura do chamado. |
+| Fim | Data e hora de fechamento do chamado. |
+| Tempo útil | Conta de segunda a sexta-feira; sábado e domingo não contam. |
+| Horário comercial | Não é aplicado nesta versão. |
+| Feriados | Não são descontados nesta versão. |
 
 ## Sequência de trabalho
 
-1. Registrar e aprovar as regras acima.
-2. Ajustar o painel usando apenas dados fictícios ou anonimizados.
+1. Ajustar o painel usando apenas dados fictícios ou anonimizados.
 3. Testar filtros, cálculos e indicadores com cenários conhecidos.
 4. Revisar visualmente a prévia com você.
 5. Conectar o Google Drive apenas quando o painel e as regras estiverem aprovados.
@@ -59,4 +57,4 @@ O painel deve permitir que uma pessoa responda, sem precisar abrir planilhas:
 
 ## Próxima decisão prática
 
-Definir a primeira regra de SLA: qual prazo devemos considerar para um chamado comum e quais casos devem ter prazo diferente.
+Definir quais comparações devem aparecer em maior destaque: por comprador, por área, por tipo quando disponível, ou por período.

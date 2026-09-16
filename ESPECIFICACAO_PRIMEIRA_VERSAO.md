@@ -4,7 +4,7 @@ Este documento é o rascunho da versão que será construída e revisada antes d
 
 ## Público
 
-Gestores e responsáveis que precisam acompanhar volume de chamados, tempo de atendimento e cumprimento de prazo sem abrir planilhas.
+Gestores e responsáveis que precisam acompanhar volume de chamados e tempo de atendimento sem abrir planilhas.
 
 ## Estrutura da tela
 
@@ -44,7 +44,7 @@ Os filtros devem funcionar juntos e deixar claro quantos chamados estão no reco
 - Quantidade de áreas no recorte
 - Maior e menor duração
 
-Na fase de SLA, entram também: dentro do prazo, fora do prazo e em risco.
+O painel deve destacar tempo médio, maior e menor tempo por comprador e por área.
 
 ### Detalhamento
 
@@ -62,10 +62,9 @@ Enquanto o Drive estiver desligado, a demonstração usará registros fictícios
 | Chamado | Busca e identificação |
 | Área | Organização das visões |
 | Responsável | Filtro e distribuição |
-| Tipo | Classificação futura de SLA |
+| Tipo | Comparação por assunto, quando disponível |
 | Abertura | Início da contagem |
 | Fechamento | Fim da contagem |
-| Prioridade | Simulação de prazos diferentes |
 
 ## Critérios de aceite
 
@@ -76,6 +75,7 @@ Consideraremos a primeira versão pronta para a prévia quando:
 3. Os totais e as durações mudarem corretamente conforme o recorte.
 4. A exportação trouxer somente os itens filtrados.
 5. Não houver dependência do Google Drive, de planilhas reais ou de credenciais.
+6. O tempo útil contar somente de segunda a sexta-feira.
 
 ## Decisões para sua revisão
 

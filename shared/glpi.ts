@@ -100,24 +100,51 @@ function nameKey(value: string): string {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, " ");
 }
 
-/** Consolidates a short tab name into a unique full-name tab while preserving records. */
+/**
+ * Names used in old and new workbook tabs for the same buyer.
+ * Keep this list explicit so it can be revised without changing source spreadsheets.
+ */
+export const BUYER_ALIASES: Record<string, string> = {
+  "magno": "Alexandre Magno Brandao",
+  "magno brandao": "Alexandre Magno Brandao",
+  "gabrielly": "Gabrielly Oliveira",
+  "mariana": "Mariana Damasceno",
+  "luiz": "Luiz Machado",
+  "silvia": "Silvia Gonçalves",
+};
+
+function canonicalBuyerName(value: string): string {
+  const separator = " · ";
+  const separatorIndex = value.indexOf(separator);
+  const areaPrefix = separatorIndex >= 0 ? value.slice(0, separatorIndex + separator.length) : "";
+  const buyerName = separatorIndex >= 0 ? value.slice(separatorIndex + separator.length) : value;
+  return `${areaPrefix}${BUYER_ALIASES[nameKey(buyerName)] ?? buyerName}`;
+}
+
+/** Consolidates confirmed aliases and safe short-name matches while preserving records. */
 export function collapseBuyerAliases(buyers: BuyerReport[]): BuyerReport[] {
   const normalized = buyers.map((buyer) => ({ buyer, key: nameKey(buyer.buyer), parts: nameKey(buyer.buyer).split(" ").filter(Boolean) }));
   const fullNames = normalized.filter(({ parts }) => parts.length > 1);
   const groups = new Map<string, BuyerReport[]>();
 
   for (const entry of normalized) {
-    const candidates = entry.parts.length === 1
+    const configuredName = canonicalBuyerName(entry.buyer.buyer);
+    const hasConfiguredName = configuredName !== entry.buyer.buyer;
+    const candidates = !hasConfiguredName && entry.parts.length === 1
       ? fullNames.filter(({ parts }) => parts.includes(entry.key))
       : [];
-    const canonical = candidates.length === 1 ? candidates[0]!.buyer : entry.buyer;
+    const canonical = hasConfiguredName
+      ? { buyer: configuredName }
+      : candidates.length === 1
+        ? candidates[0]!.buyer
+        : entry.buyer;
     const key = nameKey(canonical.buyer);
     groups.set(key, [...(groups.get(key) ?? []), entry.buyer]);
   }
 
   return Array.from(groups.values()).map((group) => {
     const canonical = [...group].sort((a, b) => b.buyer.trim().length - a.buyer.trim().length)[0]!;
-    return summarizeBuyer(canonical.buyer, group.flatMap((buyer) => buyer.records));
+    return summarizeBuyer(canonicalBuyerName(canonical.buyer), group.flatMap((buyer) => buyer.records));
   });
 }
 

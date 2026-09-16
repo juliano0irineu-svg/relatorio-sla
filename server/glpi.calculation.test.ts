@@ -23,7 +23,7 @@ describe("GLPI useful duration", () => {
   it("consolidates a short tab into a unique full buyer name", () => {
     const full = summarizeBuyer("Magno Brandao", [normalizeRecord({ chamado: "100", abertura: "2026-07-13T09:00:00", fechamento: "2026-07-13T10:00:00" }, 0)]);
     const short = summarizeBuyer("Magno", [normalizeRecord({ chamado: "101", abertura: "2026-07-14T09:00:00", fechamento: "2026-07-14T11:00:00" }, 0)]);
-    expect(collapseBuyerAliases([full, short])).toMatchObject([{ buyer: "Magno Brandao", count: 2 }]);
+    expect(collapseBuyerAliases([full, short])).toMatchObject([{ buyer: "Alexandre Magno Brandao", count: 2 }]);
   });
 
   it("consolidates observed GLPI aliases under the full tab name", () => {
@@ -55,6 +55,14 @@ describe("GLPI useful duration", () => {
     const consolidated = collapseBuyerAliases([firstSemester, secondSemester]);
     expect(consolidated.map((buyer) => buyer.buyer)).toEqual(["Alexandre Magno Brandao"]);
     expect(consolidated[0]?.count).toBe(2);
+  });
+
+  it("consolidates aliases after the area label is added to a general report", () => {
+    const full = summarizeBuyer("Indiretos · Gabrielly Oliveira", []);
+    const alias = summarizeBuyer("Indiretos · Gabrielly", []);
+    expect(collapseBuyerAliases([full, alias]).map((buyer) => buyer.buyer)).toEqual([
+      "Indiretos · Gabrielly Oliveira",
+    ]);
   });
 
   it("marks invalid dates and preserves an empty buyer state", () => {
