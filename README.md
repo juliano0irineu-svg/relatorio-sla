@@ -17,6 +17,33 @@ Começar com uma demonstração usando dados fictícios. Depois, conectar a font
 - Filtros, busca e evolução dos resultados ao longo do tempo.
 - Identificação de chamados fora do prazo ou em risco.
 
+## Como vamos trabalhar
+
+**Você** define prioridades, confirma as regras do negócio, avalia a demonstração e aprova qualquer publicação em produção.
+
+**ChatGPT / Work** organiza os requisitos, analisa os campos e as regras de SLA, documenta decisões e revisa os indicadores e a prévia. Aqui se define o que o painel precisa mostrar e como interpretar os resultados.
+
+**Codex** organiza o projeto, cria o painel, implementa e testa os cálculos, prepara a versão de demonstração e integra Drive/GLPI quando a fonte oficial, as regras e as permissões estiverem definidas.
+
+### Mapa de responsabilidades
+
+```mermaid
+flowchart LR
+    U[Você<br/>prioridades, regras e aprovação] --> W[ChatGPT / Work<br/>requisitos, dados e revisão]
+    W --> C[Codex<br/>código, testes e integração]
+    C --> P[Prévia do painel]
+    P --> W
+    W --> U
+```
+
+### Onde registramos o trabalho
+
+- **Pasta compartilhada:** contexto, decisões e arquivos em preparação.
+- **Este repositório privado:** documentação, código e histórico de alterações quando os arquivos forem incorporados.
+- **Conversas:** as abas ChatGPT / Work e Codex não sincronizam automaticamente suas mensagens. Registre decisões importantes nos arquivos para que ambas possam consultá-las.
+
+O repositório ainda não está conectado à pasta local. A versão anterior do painel e as planilhas citadas no contexto precisam ser localizadas e revisadas antes de qualquer incorporação. O projeto da faculdade `Programacao-oo` é independente.
+
 ## Decisões pendentes
 
 - Tipos de SLA e prazos por área ou prioridade.
