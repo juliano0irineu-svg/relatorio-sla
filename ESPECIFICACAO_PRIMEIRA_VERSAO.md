@@ -1,6 +1,6 @@
 # Especificação da primeira versão
 
-Este documento é o rascunho da versão que será construída e revisada antes da conexão com o Google Drive.
+Este documento registra os requisitos da primeira versão como referência. O estado atual e as próximas etapas estão em [PLANO_DO_PROJETO.md](PLANO_DO_PROJETO.md).
 
 ## Público
 
@@ -21,7 +21,7 @@ O menu deve manter a identidade azul já aprovada no painel recuperado e permiti
 
 - Nome da visão atual.
 - Texto curto explicando o recorte.
-- Indicador da origem dos dados: **Dados de demonstração** até a etapa final de integração.
+- Indicador da origem dos dados: demonstração no site hospedado ou Drive na execução local configurada.
 - Botão para atualizar a visualização.
 
 ### Filtros
@@ -55,7 +55,7 @@ O painel deve destacar tempo médio, maior e menor tempo por comprador e por ár
 
 ## Dados de demonstração
 
-Enquanto o Drive estiver desligado, a demonstração usará registros fictícios ou anonimizados contendo apenas:
+Quando a leitura do Drive estiver desligada, a demonstração usa registros fictícios ou anonimizados contendo apenas:
 
 | Campo | Uso no painel |
 | --- | --- |
@@ -68,16 +68,16 @@ Enquanto o Drive estiver desligado, a demonstração usará registros fictícios
 
 ## Critérios de aceite
 
-Consideraremos a primeira versão pronta para a prévia quando:
+Os critérios definidos para a primeira prévia foram:
 
 1. A tela estiver visualmente coerente com o painel recuperado.
 2. Todos os filtros funcionarem em conjunto.
 3. Os totais e as durações mudarem corretamente conforme o recorte.
 4. A exportação trouxer somente os itens filtrados.
-5. Não houver dependência do Google Drive, de planilhas reais ou de credenciais.
+5. A demonstração funcionar sem dependência do Google Drive, de planilhas reais ou de credenciais.
 6. O tempo útil contar somente de segunda a sexta-feira.
 
-## Decisões para sua revisão
+## Questões para revisões futuras
 
 - Os três nomes de área estão corretos?
 - Os indicadores principais acima são os mais importantes para abrir o painel?

@@ -1,60 +1,37 @@
-# Plano do Relatório de Tempo de Atendimento
+# Plano do Relatório GLPI
 
 ## Propósito
 
-Transformar o painel recuperado em um relatório confiável e simples para comparar o tempo de atendimento de cada comprador. Primeiro construiremos e validaremos a experiência com dados de demonstração. A conexão com as planilhas do Google Drive ficará para a etapa final.
+Comparar o volume e o tempo de atendimento dos chamados por comprador, área e período. O painel não usa uma meta de SLA para aprovar ou reprovar compradores.
 
-## O que já temos
+## O que já foi feito
 
-- Painel recuperado com menu, filtros por área, comprador, ano e semestre, busca, métricas e exportação.
-- Identidade visual de referência (azul Grupo Barigüi e estrutura do painel antigo).
-- Estrutura de três áreas: Indiretos, Suprimentos Adm e Transportes.
-- Fontes reais preservadas no Drive, fora do repositório.
+1. Recuperação do painel antigo e de sua identidade visual.
+2. Resumo geral e visões de Indiretos, Suprimentos Adm e Transportes, com filtros, busca e exportação.
+3. Cálculo do tempo entre abertura e fechamento, descontando sábados e domingos.
+4. Consolidação dos nomes abreviados de compradores já confirmados, sem editar as planilhas de origem.
+5. Leitura local, somente para consulta, das planilhas do Drive.
+6. Publicação privada no [Netlify](https://relatorio-glpi.netlify.app/), ligada ao [GitHub](https://github.com/juliano0irineu-svg/relatorio-sla). O site hospedado ainda mostra dados de demonstração.
 
-## Primeira versão que queremos validar
-
-O painel deve permitir que uma pessoa responda, sem precisar abrir planilhas:
-
-1. Quantos chamados foram recebidos e concluídos no período?
-2. Qual área e qual responsável concentram mais chamados?
-3. Quanto tempo os chamados levaram para ser concluídos em dias e horas úteis?
-4. Quais chamados exigiram mais tempo para serem concluídos?
-5. Como os resultados mudam por mês, semestre e ano?
-
-## Funcionalidades da primeira versão
-
-- Resumo geral com totais, média, maior e menor duração.
-- Filtros por área, responsável, ano, semestre e período.
-- Busca por número do chamado.
-- Lista de chamados filtrados e exportação do recorte.
-- Comparação de tempo médio, maior e menor tempo entre compradores e áreas.
-- Explicação visível de como o tempo útil é calculado.
-
-## Regra de cálculo já definida
+## Regra de cálculo atual
 
 | Assunto | Regra |
 | --- | --- |
-| Início | Data e hora de abertura do chamado. |
-| Fim | Data e hora de fechamento do chamado. |
-| Tempo útil | Conta de segunda a sexta-feira; sábado e domingo não contam. |
+| Início | Data e hora de ABERTURA do chamado. |
+| Fim | Data e hora de FECHAMENTO do chamado. |
+| Tempo útil | Conta de segunda a sexta-feira; sábados e domingos não contam. |
 | Horário comercial | Não é aplicado nesta versão. |
 | Feriados | Não são descontados nesta versão. |
+| Datas ausentes ou inválidas | O chamado não entra nas médias de tempo. |
 
-## Sequência de trabalho
+## Próximas etapas
 
-1. Ajustar o painel usando apenas dados fictícios ou anonimizados.
-3. Testar filtros, cálculos e indicadores com cenários conhecidos.
-4. Revisar visualmente a prévia com você.
-5. Conectar o Google Drive apenas quando o painel e as regras estiverem aprovados.
-6. Validar os totais contra as planilhas reais antes de publicar.
+1. Definir um modo de leitura dos dados do Drive para o site hospedado, com acesso adequado às planilhas.
+2. Comparar os totais e os tempos do site com as planilhas reais por área, comprador e período.
+3. Confirmar as diferenças entre nomes ou abas que ainda não foram explicadas.
+4. Definir quem poderá acessar o painel com dados reais e, depois, decidir se ele deve continuar privado.
+5. Revisar arquivos herdados que não forem necessários, sem retirar recursos usados pelo painel.
 
 ## Proteção dos dados
 
-- Planilhas reais não entram no GitHub.
-- Nenhuma credencial, token ou configuração privada entra no repositório.
-- A conexão com Drive será somente de leitura.
-- Publicação no Netlify só acontece após sua aprovação explícita.
-
-## Próxima decisão prática
-
-Definir quais comparações devem aparecer em maior destaque: por comprador, por área, por tipo quando disponível, ou por período.
+As planilhas, credenciais e a configuração local do Drive ficam fora do GitHub. O site publicado continua privado enquanto o acesso aos dados reais não estiver definido. A integração hospedada deve preservar a leitura das planilhas sem alterá-las.
