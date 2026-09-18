@@ -9,6 +9,8 @@
 - A cópia local estava limpa e apontava para esse mesmo commit.
 - Site existente: `https://relatorio-glpi.netlify.app`.
 - Equipe Netlify: Grupo Barigui.
+- Projeto Netlify: `relatorio-glpi`.
+- Identificador do projeto (Site ID): `08bddd8e-d88b-4e62-a7f6-6e32285acd79`.
 
 Este documento registra somente configurações de reconstrução. Não autoriza publicação, exclusão do site atual, alteração de conta, conexão com o Google Drive ou inclusão de segredos no Git.
 
@@ -49,8 +51,17 @@ Esses parâmetros já estão versionados em `netlify.toml`. O build executa o Vi
 
 - Não há planilhas operacionais, credenciais, arquivo `.env` ou dados reais no GitHub — isso é intencional.
 - A configuração local que acessa o Drive não pode ser reconstruída apenas a partir do repositório; ela exigirá, no momento apropriado, as permissões e identificadores de pastas aprovados.
-- Este registro não inclui identificador interno do site Netlify, histórico de deploys, domínio customizado ou variáveis já configuradas na plataforma; esses pontos devem ser conferidos na equipe Grupo Barigui antes de uma futura recriação.
-- Novas publicações permanecem pausadas pelos créditos, conforme informado. Nenhuma publicação foi iniciada nesta conferência.
+- Não há domínio customizado: somente `relatorio-glpi.netlify.app` está configurado.
+- Não há variáveis de ambiente cadastradas atualmente na Netlify.
+- A visibilidade de produção é pública; os Deploy Previews são privados. Essa visibilidade deve ser reconsiderada antes de qualquer integração com dados reais.
+- Novas publicações permanecem pausadas pelos créditos, conforme informado. Nenhum deploy foi publicado nesta conferência.
+
+## Conferência da Netlify em 18/09/2026
+
+- O repositório conectado é `juliano0irineu-svg/relatorio-sla`, com deploy de produção a partir da branch `main`.
+- O último deploy efetivamente publicado é o commit `0007403` em 17/09/2026, com a mensagem `Alinha lockfile ao pnpm do Netlify`.
+- O commit de documentação `8bb8e2f` disparou um deploy automático em 18/09/2026, mas ele foi **ignorado** por exceder o crédito da conta. Não houve alteração no conteúdo em produção.
+- A Netlify informa que os sites já publicados permanecem no ar, enquanto deploys de produção e Agent Runners estão pausados.
 
 ## Próximo passo seguro
 
